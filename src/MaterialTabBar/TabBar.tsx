@@ -199,6 +199,14 @@ const MaterialTabBar = <T extends TabName = TabName>({
       onScroll={scrollEnabled ? onScroll : undefined}
       scrollEventThrottle={16}
     >
+      {itemsLayout.length === nTabs && (
+        <Indicator
+          indexDecimal={indexDecimal}
+          itemsLayout={itemsLayout}
+          fadeIn={scrollEnabled}
+          style={indicatorStyle}
+        />
+      )}
       {tabNames.map((name, i) => {
         return (
           <TabItemComponent
@@ -221,14 +229,7 @@ const MaterialTabBar = <T extends TabName = TabName>({
           />
         )
       })}
-      {itemsLayout.length === nTabs && (
-        <Indicator
-          indexDecimal={indexDecimal}
-          itemsLayout={itemsLayout}
-          fadeIn={scrollEnabled}
-          style={indicatorStyle}
-        />
-      )}
+      
     </Animated.ScrollView>
   )
 }
@@ -240,6 +241,6 @@ export { MemoizedTabBar as MaterialTabBar }
 const styles = StyleSheet.create({
   contentContainer: {
     flexDirection: 'row',
-    flexWrap: 'nowrap',
+    flexWrap: 'nowrap'
   },
 })
