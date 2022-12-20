@@ -149,7 +149,7 @@ export function useCollapsibleStyle(): CollapsibleStyle {
           IS_IOS && !allowHeaderOverscroll
             ? (containerHeightVal || 0) - (tabBarHeightVal || 0)
             : (containerHeightVal || 0) + (headerHeightVal || 0),
-        paddingTop:
+        marginTop:
           IS_IOS && !allowHeaderOverscroll
             ? 0
             : (headerHeightVal || 0) + (tabBarHeightVal || 0),
